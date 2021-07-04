@@ -48,4 +48,6 @@ dependencies {
     // Pytorch library
     implementation 'org.pytorch:pytorch_android:1.8.0'
     implementation 'org.pytorch:pytorch_android_torchvision:1.8.0'
+    //Image crop library
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
 }

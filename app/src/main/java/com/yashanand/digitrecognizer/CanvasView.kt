@@ -17,8 +17,8 @@ class CanvasView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     lateinit var extraCanvas: Canvas
     lateinit var extraBitmap: Bitmap
     }
-    private val backgroundColor = ResourcesCompat.getColor(resources, R.color.black, null)
-    private val drawColor = ResourcesCompat.getColor(resources, R.color.white, null)
+    private val backgroundColor = ResourcesCompat.getColor(resources, R.color.white, null)
+    private val drawColor = ResourcesCompat.getColor(resources, R.color.black, null)
     private var path = Path()
 
 

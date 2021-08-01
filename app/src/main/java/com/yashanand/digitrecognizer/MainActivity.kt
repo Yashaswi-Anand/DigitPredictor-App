@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
         // read module of mnist file and set button for detecting the digit ---
         val mnistPath = ReadMnistFile()
-        module = Module.load(mnistPath.loadAssetPath(this,"mnist_ann_cpy.pt"))
+        module = Module.load(mnistPath.loadAssetPath(this,"mymodel.pt"))
         Log.d("module", module.toString())
         val predictBtn = findViewById<Button>(R.id.predict)
         predictBtn.setOnClickListener {

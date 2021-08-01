@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bottom_shape_navigation"
     tools:context=".MainActivity">
 
 
@@ -15,7 +16,9 @@
         android:background="@drawable/top_shape_layout"
         android:gravity="center"
         android:padding="15dp"
-        android:text="Digit Recognizer"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="Digit Predictor "
         android:textSize="25dp"
         app:layout_constraintTop_toTopOf="parent" />
 

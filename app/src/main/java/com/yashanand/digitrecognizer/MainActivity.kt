@@ -10,6 +10,8 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -33,6 +35,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main)
 
         // read module of mnist file and set button for detecting the digit ---
@@ -48,19 +52,21 @@ class MainActivity : AppCompatActivity() {
                     28,
                     true
             )
-            val maxValueIdx = predict.predict(module,resizedBitmap)
+            //img.setImageBitmap(resizedBitmap)
+            val maxValueIdx = predict.predict(module,resizedBitmap,0)
             val predictedValue: TextView = findViewById(R.id.predicted_result)
             if(maxValueIdx[1]<= 0) maxValueIdx[1] = maxValueIdx[1]*(-1)
             predictedValue.text = "Result: ${maxValueIdx[0].toString()}" /*and Prob: ${maxScoreIdx[1].toString()}"*/
         }
-        clear.setOnClickListener {
-            CanvasView.extraCanvas.drawColor(ResourcesCompat.getColor(resources, R.color.white, null))
+        clearButton.setOnClickListener {
+            CanvasView.extraCanvas.drawColor(ResourcesCompat.getColor(resources, R.color.black, null))
             predicted_result.text = ""
         }
 
         otherImg.setOnClickListener {
             pickFromGallery()
             result_predict_gallery.text = ""
+            image_of_gallery.setImageDrawable(null)
         }
 
         bottom_navigation.setOnNavigationItemSelectedListener{ item ->
@@ -93,6 +99,8 @@ class MainActivity : AppCompatActivity() {
             pickFromGallery()
             DrawLayout.visibility = View.GONE
             GalleryLayout.visibility = View.VISIBLE
+            result_predict_gallery.text = ""
+            image_of_gallery.setImageDrawable(null)
             bottomSheetDialog.dismiss()
         }
         bottomSheetDialog.setContentView(bottomSheetView)
@@ -144,7 +152,7 @@ class MainActivity : AppCompatActivity() {
                         28,
                         true
                 )
-                val maxValueIdx = predict.predict(module, resizedBitmap)
+                val maxValueIdx = predict.predict(module, resizedBitmap,1)
                 result_predict_gallery.text = "Result: ${maxValueIdx[0].toString()}"
             }
 

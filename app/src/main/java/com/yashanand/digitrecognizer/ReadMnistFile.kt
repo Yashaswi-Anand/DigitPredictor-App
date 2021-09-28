@@ -7,7 +7,7 @@ import java.io.FileOutputStream
 
 class ReadMnistFile {
 
-    // return absolute path of my mnist model( mymodel.pt) in string format
+    // return absolute path of mnist model( like mymodel.pt) in string format
     fun loadAssetPath(context: Context, modelName: String): String? {
         val file = File(context.filesDir, modelName)
         if (file.exists()&& file.length()>0){

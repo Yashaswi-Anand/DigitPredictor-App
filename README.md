@@ -4,7 +4,7 @@
 
 <h2>Screenshots</h2>
 <div>
-<img src="screenshots/img1.jpg" width=256 style="display:inline-block"/>
+<img src="screenshots/img1.jpg" width=256 height 300 style="display:inline-block"/>
 <img src="screenshots/img2.jpg" width=256 style="display:inline-block"/>
 </div>
 
